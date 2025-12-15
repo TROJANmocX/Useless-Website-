@@ -1,0 +1,194 @@
+:root {
+    --bg-color: #fffbe6;
+    --text-color: #000000;
+    --button-color: #ff6b6b;
+    --button-shadow: #b33e3e;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: "Impact", "Arial Black", sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow-x: hidden;
+    /* Prevent scroll from chaos */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: none;
+    /* We use a custom banana */
+    user-select: none;
+}
+
+#custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-size: 3rem;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    max-width: 800px;
+    transform: rotate(-1deg);
+    /* Slight intentional skew */
+}
+
+.main-text {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    transform: translateX(-20px);
+    /* Off-center */
+}
+
+.subtext {
+    font-size: 1.5rem;
+    font-family: "Courier New", monospace;
+    font-weight: bold;
+    margin-bottom: 3rem;
+    transform: translateX(10px);
+}
+
+.button-wrapper {
+    position: relative;
+    height: 100px;
+    /* Space for movement */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.the-button {
+    background-color: var(--button-color);
+    color: white;
+    border: 4px solid black;
+    padding: 20px 40px;
+    font-size: 2rem;
+    font-family: inherit;
+    cursor: none;
+    /* Hide default cursor */
+    box-shadow: 10px 10px 0px var(--button-shadow);
+    transition: all 0.1s ease;
+    border-radius: 10px;
+    outline: none;
+}
+
+.the-button:active {
+    box-shadow: 2px 2px 0px var(--button-shadow);
+    transform: translate(8px, 8px);
+}
+
+.joke-text {
+    margin-top: 4rem;
+    font-size: 1rem;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    /* Sorry not sorry */
+    color: #555;
+    min-height: 1.5rem;
+}
+
+#loading {
+    display: none;
+    margin-top: 2rem;
+}
+
+#loading.visible {
+    display: block;
+}
+
+.spinner {
+    font-size: 4rem;
+    display: inline-block;
+    animation: wobble-spin 1s infinite linear;
+}
+
+@keyframes wobble-spin {
+    0% {
+        transform: rotate(0deg) translateX(0);
+    }
+
+    25% {
+        transform: rotate(90deg) translateX(5px);
+    }
+
+    50% {
+        transform: rotate(180deg) translateX(0);
+    }
+
+    75% {
+        transform: rotate(270deg) translateX(-5px);
+    }
+
+    100% {
+        transform: rotate(360deg) translateX(0);
+    }
+}
+
+footer {
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+#footer-text {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#footer-text:hover {
+    color: red;
+}
+
+/* RARE OVERLAY */
+.hidden-overlay {
+    display: none;
+}
+
+#rare-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    color: white;
+    display: none;
+    /* Changed from flex to none to fix black screen */
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    text-align: center;
+    z-index: 10000;
+    padding: 20px;
+}
+
+#rare-overlay.visible {
+    display: flex;
+    /* Override display: none from CSS if it was there, or allow flex */
+}
+
+/* Mobile Chaos */
+@media (max-width: 600px) {
+    .main-text {
+        font-size: 3rem;
+        transform: translateX(0);
+    }
+
+    .the-button {
+        width: 90%;
+        padding: 40px 20px;
+        font-size: 2.5rem;
+    }
+}
