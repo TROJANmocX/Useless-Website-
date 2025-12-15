@@ -964,7 +964,6 @@ document.addEventListener('DOMContentLoaded', () => {
         "https://onemillioncheckboxes.com/?r=798",
         "https://mackerelmediafish.com/?r=799",
         "https://koalastothemax.com/?r=800",
-        "https://neal.fun/?r=801"],
-        website => !website.includes("theuselessweb.com")
-  );
+        "https://neal.fun/?r=801"
+    ].filter(website => !website.includes("theuselessweb.com"));
 });
